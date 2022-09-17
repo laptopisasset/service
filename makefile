@@ -1,8 +1,13 @@
+SHELL := /bin/bash
+
 # BUILDING CONTAINERS
 
 VERSION := 1.0
 
 all: sales-api
+
+run:
+	go run app/services/sales-api/main.go | go run app/tooling/logfmt/main.go
 
 sales-api:
 	docker build \
